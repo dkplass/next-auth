@@ -42,8 +42,13 @@ const LoginForm = () => {
     startTransition(() => {
       // server action
       login(values).then((data) => {
-        setSuccess(data.success);
-        setError(data.error);
+        if (data?.success) {
+          setSuccess(data.success);
+        }
+
+        if (data?.error) {
+          setError(data.error);
+        }
       });
 
       // not server action

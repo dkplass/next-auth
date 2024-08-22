@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { RegisterSchema } from "@/schemas";
-import { login } from "@/actions/login";
+import { register } from "@/actions/register";
 
 import {
   Form,
@@ -42,7 +42,7 @@ const RegisterForm = () => {
 
     startTransition(() => {
       // server action
-      login(values).then((data) => {
+      register(values).then((data) => {
         setSuccess(data.success);
         setError(data.error);
       });
